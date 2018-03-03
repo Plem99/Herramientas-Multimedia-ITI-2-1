@@ -1,4 +1,4 @@
 # Herramientas Multimedia.
 <br>Trabajos Flash.</br>
-<br>Nombre: Pedro Luis Espinoza Martinez.</br>
-Matrícula: 1730314.
+<br>Nombre:<b>Pedro Luis Espinoza Martinez.</b></br>
+Matrícula:<b>1730314.</b>

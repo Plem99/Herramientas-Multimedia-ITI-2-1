@@ -14,50 +14,12 @@
 	
 	public class Main extends MovieClip {
 		var Galeria:Sprite=new Sprite();
-//==============================================================================================================================			
-//Variables Práctica 1.
-//==============================================================================================================================			
-	var nombre:String; //Nombre del usuario
-	var sueldo:Number; //Sueldo del usuario
-	var sexo:String;   //Seco del usuario
-	//Estas variables son las iniciales de Femenino (F) y Masculino (M)
-	var F:String="F";
-	var M:String="M";
-//==============================================================================================================================			
-//Variables Práctica 2.
-//==============================================================================================================================
-
-//==============================================================================================================================			
-//Variables Práctica 3.
-//==============================================================================================================================
-
-//==============================================================================================================================			
-//Variables Práctica 4.
-//==============================================================================================================================
+		var carga:Loader=new Loader();
 		
-//==============================================================================================================================			
-//Variables Práctica 5.
-//==============================================================================================================================
+		var datosXML:XML;
+		var numeroElementos:uint;
+		var imagen:Loader=new Loader();
 		
-//==============================================================================================================================			
-//Variables Práctica 6.
-//==============================================================================================================================
-
-//==============================================================================================================================			
-//Variables Práctica 7.
-//==============================================================================================================================
-
-//==============================================================================================================================			
-//Variables Práctica 8.
-//==============================================================================================================================
-
-//==============================================================================================================================			
-//Variables Práctica 9.
-//==============================================================================================================================
-
-//==============================================================================================================================			
-//Variables Práctica 10.
-//==============================================================================================================================
 		public function Main() {
 			enter_btn.addEventListener(MouseEvent.CLICK, Enter);
 		}
@@ -88,14 +50,14 @@
 			p1_btn.addEventListener(MouseEvent.CLICK, Practica1);
 			p2_btn.addEventListener(MouseEvent.CLICK, Practica2);
 			p3_btn.addEventListener(MouseEvent.CLICK, Practica3);
-			//
-			//p4_btn.addEventListener(MouseEvent.CLICK, Practica4);
-			/*p5_btn.addEventListener(MouseEvent.CLICK, Practica5);
+			p4_btn.addEventListener(MouseEvent.CLICK, Practica4);
+			p5_btn.addEventListener(MouseEvent.CLICK, Practica5);
+			p5_5btn.addEventListener(MouseEvent.CLICK, Practica5_5);
 			p6_btn.addEventListener(MouseEvent.CLICK, Practica6);
 			p7_btn.addEventListener(MouseEvent.CLICK, Practica7);
 			p8_btn.addEventListener(MouseEvent.CLICK, Practica8);
 			p9_btn.addEventListener(MouseEvent.CLICK, Practica9);
-			p10_btn.addEventListener(MouseEvent.CLICK, Practica10);*/
+			p10_btn.addEventListener(MouseEvent.CLICK, Practica10);
 		}
 //==============================================================================================================================			
 //Multimedia.
@@ -106,59 +68,57 @@
 			videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
 			info_btn.addEventListener(MouseEvent.CLICK, Informacion);
 			poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
-			quitar_btn.addEventListener(MouseEvent.CLICK, RChild);
-//==============================================================================================================================
-			var datosXML:XML;
-			var numeroElementos:uint;
-			var cargador:URLLoader=new URLLoader(new URLRequest("Galeria.xml"));
-			//var Galeria:Sprite=new Sprite();
-			addChild(Galeria);
-		
-			function cargarLista(event:Event){
-				datosXML=new XML (event.target.data);
-				numeroElementos=datosXML.mochilas.length();
-				setImagenes();
-				}
-			cargador.addEventListener(Event.COMPLETE,cargarLista);
-				
-			function setImagenes (){
-				var posY:uint=0;
-				var posX:uint=0;
-			//Imprimirlas en el contenedor "Galeria".
-			for(var i:uint=0; i<numeroElementos; i++){
-				var ind:Number=(i)%5;
-				if(i>0 && ind==0){
-					posY++;
-					posX=0;
-				}
-				var imagen:Loader=new Loader();
-				imagen.load(new URLRequest(datosXML.mochilas[i].imagen));
-				imagen.y=posY*210;
-				imagen.x= posX*210;
-				Galeria.addChild(imagen);
-		
-				/*var texto:TextField=new TextField();
-				//info por info que pusimos en xml.
-				texto.text=datosXML.mochilas[i].info;
-				texto.y=imagen.y+205;
-				texto.x=imagen.x;
-				Galeria.addChild(texto);*/
-				posX++;
-				}
-				//var strongEaseOut1:Tween= new Tween(imagen,"x",Strong.easeOut,imagen.y,imagen.x,5,true);
-			}
-			function setPosition(event:Event){
-				Galeria.graphics.beginFill(0xFF0000);
-				Galeria.graphics.drawRect(0,0,Galeria.width,Galeria.height);
-				Galeria.x=(stage.stageWidth - Galeria.width)/2;
-				}
-			function moverGaleria(event:MouseEvent){
-				var porcentaje:Number=mouseX/stage.stageWidth;
-				trace(Galeria.width);
-				}			
+
+			m1.addEventListener(MouseEvent.CLICK, Imagen1);
+			m2.addEventListener(MouseEvent.CLICK, Imagen2);
+			m3.addEventListener(MouseEvent.CLICK, Imagen3);
+			m4.addEventListener(MouseEvent.CLICK, Imagen4);
+			m5.addEventListener(MouseEvent.CLICK, Imagen5);
+			m6.addEventListener(MouseEvent.CLICK, Imagen6);
+			m7.addEventListener(MouseEvent.CLICK, Imagen7);
+			m8.addEventListener(MouseEvent.CLICK, Imagen8);
+			m9.addEventListener(MouseEvent.CLICK, Imagen9);
+			m10.addEventListener(MouseEvent.CLICK, Imagen10);
+			m11.addEventListener(MouseEvent.CLICK, Imagen11);
+			m12.addEventListener(MouseEvent.CLICK, Imagen12);
+			m13.addEventListener(MouseEvent.CLICK, Imagen13);
+			m14.addEventListener(MouseEvent.CLICK, Imagen14);
+			m15.addEventListener(MouseEvent.CLICK, Imagen15);
+			m16.addEventListener(MouseEvent.CLICK, Imagen16);
+			m17.addEventListener(MouseEvent.CLICK, Imagen17);
+			m18.addEventListener(MouseEvent.CLICK, Imagen18);
+			m19.addEventListener(MouseEvent.CLICK, Imagen19);
+			m20.addEventListener(MouseEvent.CLICK, Imagen20);
+	
 		}
 		public function RChild (event:MouseEvent):void{
+			gotoAndStop(4);
 			removeChild(Galeria);
+			practicas_btn.addEventListener(MouseEvent.CLICK, Practicas);
+			videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
+			info_btn.addEventListener(MouseEvent.CLICK, Informacion);
+			poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
+
+			m1.addEventListener(MouseEvent.CLICK, Imagen1);
+			m2.addEventListener(MouseEvent.CLICK, Imagen2);
+			m3.addEventListener(MouseEvent.CLICK, Imagen3);
+			m4.addEventListener(MouseEvent.CLICK, Imagen4);
+			m5.addEventListener(MouseEvent.CLICK, Imagen5);
+			m6.addEventListener(MouseEvent.CLICK, Imagen6);
+			m7.addEventListener(MouseEvent.CLICK, Imagen7);
+			m8.addEventListener(MouseEvent.CLICK, Imagen8);
+			m9.addEventListener(MouseEvent.CLICK, Imagen9);
+			m10.addEventListener(MouseEvent.CLICK, Imagen10);
+			m11.addEventListener(MouseEvent.CLICK, Imagen11);
+			m12.addEventListener(MouseEvent.CLICK, Imagen12);
+			m13.addEventListener(MouseEvent.CLICK, Imagen13);
+			m14.addEventListener(MouseEvent.CLICK, Imagen14);
+			m15.addEventListener(MouseEvent.CLICK, Imagen15);
+			m16.addEventListener(MouseEvent.CLICK, Imagen16);
+			m17.addEventListener(MouseEvent.CLICK, Imagen17);
+			m18.addEventListener(MouseEvent.CLICK, Imagen18);
+			m19.addEventListener(MouseEvent.CLICK, Imagen19);
+			m20.addEventListener(MouseEvent.CLICK, Imagen20);
 		}
 //==============================================================================================================================			
 //VideoJuegos.
@@ -169,6 +129,7 @@
 			multimedia_btn.addEventListener(MouseEvent.CLICK, Multimedia);
 			info_btn.addEventListener(MouseEvent.CLICK, Informacion);
 			poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
+			col_btn.addEventListener(MouseEvent.CLICK,Practica4 );
 		}
 //==============================================================================================================================			
 //Información.
@@ -190,104 +151,667 @@
 			videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
 			info_btn.addEventListener(MouseEvent.CLICK, Informacion);
 			poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
+			
+			removeChild(carga);
 		}
 //==============================================================================================================================			
 //Práctica 1.
 //==============================================================================================================================			
 		public function Practica1(event:MouseEvent):void{
 			gotoAndStop(7);
-			borrar_btn.addEventListener(MouseEvent.CLICK,borrarTxt);
-			guardar_btn.addEventListener(MouseEvent.CLICK,Fguardar);
-			// Solo se debera introducir los carácteres F ó M (Texto en el textinput)
-			sexo_txt.text= "Solo F ó M";
-		function Fguardar(event:MouseEvent):void {
-			//Asignar valores a las variables desde los inputText
-			nombre=nombre_txt.text;
-			sexo=sexo_txt.text;
-			sueldo=Number(sueldo_txt.text);
-			//Validar Sueldo, NaN=Not a number
-			if (isNaN (sueldo)){            //Si en sueldo no es un numero, entonces mostrara "Solo números"
-				//Si es Verdadero, el valor es STRING
-				sueldo_txt.text="Solo números";
-			}else{                          //Si no, mostrara "Introducir sueldo"
-				if(isNaN (sueldo) || sueldo==0){
-					//Sueldo=$0
-					sueldo_txt.text="Introducir sueldo";
-			}else{                //Si no, imprimir el sueldo en el textinput correspondiente
-					sueldo=Number(sueldo_txt.text);
-					}
-				}
-			//Condicionaremos las letras F y M, para que solo sean usadas estas letras
-			if((sexo==F) || (sexo==M)){
-			//Si sexo= a F o =M, entonces no marcara nada, pero si no es verdad, se mostrara "carácter no válido"
-					sexo_txt.text="";
-					}else{
-						sexo_txt.text="Carácter no válido";
-					}
-						trace (nombre,sueldo,sexo);       //Imprimiremos en consola los datos llenados
-				}
-		//Funcion de borrar todos los cuadros de texto, se usaran "" para dejar vacío el texto
-		function borrarTxt(event:MouseEvent):void {
-			nombre_txt.text="";
-			sexo_txt.text="";
-			sueldo_txt.text="";
-				}
+			var practica:URLRequest = new URLRequest("Práctica 1.swf");
+			carga.load(practica);
+			addChild(carga);
+			carga.x=348;
+			carga.y=196;
+			
+			practica1.visible=true;
+			practica2.visible=false;
+			practica3.visible=false;
+			practica4.visible=false;
+			practica5.visible=false;
+			practica5_5.visible=false;
+			practica6.visible=false;
+			practica7.visible=false;
+			practica8.visible=false;
+			practica9.visible=false;
+			practica10.visible=false;
+			
 		}
 		
 //==============================================================================================================================			
 //Práctica 2.
 //==============================================================================================================================		
 		public function Practica2(event:MouseEvent):void{
-			gotoAndStop(8);
+			gotoAndStop(7);
+			var practica:URLRequest = new URLRequest("Práctica 2.swf");
+			carga.load(practica);
+			addChild(carga);
+			carga.x=348;
+			carga.y=196;
+			
+			practica1.visible=false;
+			practica2.visible=true;
+			practica3.visible=false;
+			practica4.visible=false;
+			practica5.visible=false;
+			practica5_5.visible=false;
+			practica6.visible=false;
+			practica7.visible=false;
+			practica8.visible=false;
+			practica9.visible=false;
+			practica10.visible=false;
 		}
 //==============================================================================================================================			
 //Práctica 3.
 //==============================================================================================================================
 		public function Practica3(event:MouseEvent):void{
-			gotoAndStop(11);
-		}/*
+			gotoAndStop(7);
+			var practica:URLRequest = new URLRequest("Práctica 3.swf");
+			carga.load(practica);
+			addChild(carga);
+			carga.x=348;
+			carga.y=196;
+			
+			practica1.visible=false;
+			practica2.visible=false;
+			practica3.visible=true;
+			practica4.visible=false;
+			practica5.visible=false;
+			practica5_5.visible=false;
+			practica6.visible=false;
+			practica7.visible=false;
+			practica8.visible=false;
+			practica9.visible=false;
+			practica10.visible=false;
+		}
 //==============================================================================================================================			
 //Práctica 4.
 //==============================================================================================================================
 		public function Practica4(event:MouseEvent):void{
-			gotoAndStop();
+			gotoAndStop(7);
+			var practica:URLRequest = new URLRequest("Práctica 4.swf");
+			carga.load(practica);
+			addChild(carga);
+			carga.x=348;
+			carga.y=196;
+			
+			practica1.visible=false;
+			practica2.visible=false;
+			practica3.visible=false;
+			practica4.visible=true;
+			practica5.visible=false;
+			practica5_5.visible=false;
+			practica6.visible=false;
+			practica7.visible=false;
+			practica8.visible=false;
+			practica9.visible=false;
+			practica10.visible=false;
 		}
 //==============================================================================================================================			
 //Práctica 5.
 //==============================================================================================================================
 		public function Practica5(event:MouseEvent):void{
-			gotoAndStop();
+			gotoAndStop(7);
+			var practica:URLRequest = new URLRequest("Práctica 5.swf");
+			carga.load(practica);
+			addChild(carga);
+			carga.x=348;
+			carga.y=196;
+			
+			practica1.visible=false;
+			practica2.visible=false;
+			practica3.visible=false;
+			practica4.visible=false;
+			practica5.visible=true;
+			practica5_5.visible=false;
+			practica6.visible=false;
+			practica7.visible=false;
+			practica8.visible=false;
+			practica9.visible=false;
+			practica10.visible=false;
+		}
+//==============================================================================================================================			
+//Práctica 5_5.
+//==============================================================================================================================
+		public function Practica5_5(event:MouseEvent):void{
+			gotoAndStop(7);
+			var practica:URLRequest = new URLRequest("Práctica 5_5.swf");
+			carga.load(practica);
+			addChild(carga);
+			carga.x=348;
+			carga.y=196;
+			
+			practica1.visible=false;
+			practica2.visible=false;
+			practica3.visible=false;
+			practica4.visible=false;
+			practica5.visible=false;
+			practica5_5.visible=true;
+			practica6.visible=false;
+			practica7.visible=false;
+			practica8.visible=false;
+			practica9.visible=false;
+			practica10.visible=false;
 		}
 //==============================================================================================================================			
 //Práctica 6.
 //==============================================================================================================================
 		public function Practica6(event:MouseEvent):void{
-			gotoAndStop();
+			gotoAndStop(7);
+			var practica:URLRequest = new URLRequest("Práctica 6.swf");
+			carga.load(practica);
+			addChild(carga);
+			carga.x=348;
+			carga.y=196;
+			
+			practica1.visible=false;
+			practica2.visible=false;
+			practica3.visible=false;
+			practica4.visible=false;
+			practica5.visible=false;
+			practica5_5.visible=false;
+			practica6.visible=true;
+			practica7.visible=false;
+			practica8.visible=false;
+			practica9.visible=false;
+			practica10.visible=false;
 		}
 //==============================================================================================================================			
 //Práctica 7.
 //==============================================================================================================================
 		public function Practica7(event:MouseEvent):void{
-			gotoAndStop();
+			gotoAndStop(7);
+			var practica:URLRequest = new URLRequest("Práctica 7.swf");
+			carga.load(practica);
+			addChild(carga);
+			carga.x=348;
+			carga.y=196;
+			
+			practica1.visible=false;
+			practica2.visible=false;
+			practica3.visible=false;
+			practica4.visible=false;
+			practica5.visible=false;
+			practica5_5.visible=false;
+			practica6.visible=false;
+			practica7.visible=true;
+			practica8.visible=false;
+			practica9.visible=false;
+			practica10.visible=false;
 		}
 //==============================================================================================================================			
 //Práctica 8.
 //==============================================================================================================================
 		public function Practica8(event:MouseEvent):void{
-			gotoAndStop();
+			gotoAndStop(7);
+			var practica:URLRequest = new URLRequest("Práctica 8.swf");
+			carga.load(practica);
+			addChild(carga);
+			carga.x=348;
+			carga.y=196;
+			
+			practica1.visible=false;
+			practica2.visible=false;
+			practica3.visible=false;
+			practica4.visible=false;
+			practica5.visible=false;
+			practica5_5.visible=false;
+			practica6.visible=false;
+			practica7.visible=false;
+			practica8.visible=true;
+			practica9.visible=false;
+			practica10.visible=false;
 		}
 //==============================================================================================================================			
 //Práctica 9.
 //==============================================================================================================================
 		public function Practica9(event:MouseEvent):void{
-			gotoAndStop();
+			gotoAndStop(7);
+			var practica:URLRequest = new URLRequest("Práctica 9.swf");
+			carga.load(practica);
+			addChild(carga);
+			carga.x=348;
+			carga.y=196;
+			
+			practica1.visible=false;
+			practica2.visible=false;
+			practica3.visible=false;
+			practica4.visible=false;
+			practica5.visible=false;
+			practica5_5.visible=false;
+			practica6.visible=false;
+			practica7.visible=false;
+			practica8.visible=false;
+			practica9.visible=true;
+			practica10.visible=false;
 		}
 //==============================================================================================================================			
 //Práctica 10.
 //==============================================================================================================================
 		public function Practica10(event:MouseEvent):void{
-			gotoAndStop();
-		}*/
-//==============================================================================================================================			
+			gotoAndStop(7);
+			var practica:URLRequest = new URLRequest("Práctica 10.swf");
+			carga.load(practica);
+			addChild(carga);
+			carga.x=348;
+			carga.y=196;
+			//carga.width=900;
+			//carga.height=800;
+			
+			practica1.visible=false;
+			practica2.visible=false;
+			practica3.visible=false;
+			practica4.visible=false;
+			practica5.visible=false;
+			practica5_5.visible=false;
+			practica6.visible=false;
+			practica7.visible=false;
+			practica8.visible=false;
+			practica9.visible=false;
+			practica10.visible=true;
+		}
+//=============================================================================================
+		public function Imagen1(event:MouseEvent):void{
+				gotoAndStop(8);
+				quitar_btn.addEventListener(MouseEvent.CLICK, RChild);
+				var cargador:URLLoader=new URLLoader(new URLRequest("Galeria.xml"));
+				addChild(Galeria)
+			function cargarLista(event:Event){
+				datosXML=new XML (event.target.data);
+				numeroElementos=datosXML.mochilas.length();
+				setImagenes();
+				}
+			cargador.addEventListener(Event.COMPLETE,cargarLista);
+				
+			function setImagenes (){
+				imagen.load(new URLRequest(datosXML.mochilas[0].imagen));
+				imagen.y=200;
+				imagen.x=500;
+				Galeria.addChild(imagen);
+			}
+		}
+//=============================================================================================
+		public function Imagen2(event:MouseEvent):void{
+				gotoAndStop(8);
+				quitar_btn.addEventListener(MouseEvent.CLICK, RChild);
+				var cargador:URLLoader=new URLLoader(new URLRequest("Galeria.xml"));
+				addChild(Galeria)
+			function cargarLista(event:Event){
+				datosXML=new XML (event.target.data);
+				numeroElementos=datosXML.mochilas.length();
+				setImagenes();
+				}
+			cargador.addEventListener(Event.COMPLETE,cargarLista);
+				
+			function setImagenes (){
+				imagen.load(new URLRequest(datosXML.mochilas[1].imagen));
+				imagen.y=200;
+				imagen.x=500;
+				Galeria.addChild(imagen);
+			}
+		}
+//=============================================================================================
+		public function Imagen3(event:MouseEvent):void{
+				gotoAndStop(8);
+				quitar_btn.addEventListener(MouseEvent.CLICK, RChild);
+				var cargador:URLLoader=new URLLoader(new URLRequest("Galeria.xml"));
+				addChild(Galeria)
+			function cargarLista(event:Event){
+				datosXML=new XML (event.target.data);
+				numeroElementos=datosXML.mochilas.length();
+				setImagenes();
+				}
+			cargador.addEventListener(Event.COMPLETE,cargarLista);
+				
+			function setImagenes (){
+				imagen.load(new URLRequest(datosXML.mochilas[2].imagen));
+				imagen.y=200;
+				imagen.x=500;
+				Galeria.addChild(imagen);
+			}
+		}
+//=============================================================================================
+		public function Imagen4(event:MouseEvent):void{
+				gotoAndStop(8);
+				quitar_btn.addEventListener(MouseEvent.CLICK, RChild);
+				var cargador:URLLoader=new URLLoader(new URLRequest("Galeria.xml"));
+				addChild(Galeria)
+			function cargarLista(event:Event){
+				datosXML=new XML (event.target.data);
+				numeroElementos=datosXML.mochilas.length();
+				setImagenes();
+				}
+			cargador.addEventListener(Event.COMPLETE,cargarLista);
+				
+			function setImagenes (){
+				imagen.load(new URLRequest(datosXML.mochilas[3].imagen));
+				imagen.y=200;
+				imagen.x=500;
+				Galeria.addChild(imagen);
+			}
+		}
+//=============================================================================================
+		public function Imagen5(event:MouseEvent):void{
+				gotoAndStop(8);
+				quitar_btn.addEventListener(MouseEvent.CLICK, RChild);
+				var cargador:URLLoader=new URLLoader(new URLRequest("Galeria.xml"));
+				addChild(Galeria)
+			function cargarLista(event:Event){
+				datosXML=new XML (event.target.data);
+				numeroElementos=datosXML.mochilas.length();
+				setImagenes();
+				}
+			cargador.addEventListener(Event.COMPLETE,cargarLista);
+				
+			function setImagenes (){
+				imagen.load(new URLRequest(datosXML.mochilas[4].imagen));
+				imagen.y=200;
+				imagen.x=500;
+				Galeria.addChild(imagen);
+			}
+		}
+//=============================================================================================
+		public function Imagen6(event:MouseEvent):void{
+				gotoAndStop(8);
+				quitar_btn.addEventListener(MouseEvent.CLICK, RChild);
+				var cargador:URLLoader=new URLLoader(new URLRequest("Galeria.xml"));
+				addChild(Galeria)
+			function cargarLista(event:Event){
+				datosXML=new XML (event.target.data);
+				numeroElementos=datosXML.mochilas.length();
+				setImagenes();
+				}
+			cargador.addEventListener(Event.COMPLETE,cargarLista);
+				
+			function setImagenes (){
+				imagen.load(new URLRequest(datosXML.mochilas[5].imagen));
+				imagen.y=200;
+				imagen.x=500;
+				Galeria.addChild(imagen);
+			}
+		}
+//=============================================================================================
+		public function Imagen7(event:MouseEvent):void{
+				gotoAndStop(8);
+				quitar_btn.addEventListener(MouseEvent.CLICK, RChild);
+				var cargador:URLLoader=new URLLoader(new URLRequest("Galeria.xml"));
+				addChild(Galeria)
+			function cargarLista(event:Event){
+				datosXML=new XML (event.target.data);
+				numeroElementos=datosXML.mochilas.length();
+				setImagenes();
+				}
+			cargador.addEventListener(Event.COMPLETE,cargarLista);
+				
+			function setImagenes (){
+				imagen.load(new URLRequest(datosXML.mochilas[6].imagen));
+				imagen.y=200;
+				imagen.x=500;
+				Galeria.addChild(imagen);
+			}
+		}
+//=============================================================================================
+		public function Imagen8(event:MouseEvent):void{
+				gotoAndStop(8);
+				quitar_btn.addEventListener(MouseEvent.CLICK, RChild);
+				var cargador:URLLoader=new URLLoader(new URLRequest("Galeria.xml"));
+				addChild(Galeria)
+			function cargarLista(event:Event){
+				datosXML=new XML (event.target.data);
+				numeroElementos=datosXML.mochilas.length();
+				setImagenes();
+				}
+			cargador.addEventListener(Event.COMPLETE,cargarLista);
+				
+			function setImagenes (){
+				imagen.load(new URLRequest(datosXML.mochilas[7].imagen));
+				imagen.y=200;
+				imagen.x=500;
+				Galeria.addChild(imagen);
+			}
+		}
+//=============================================================================================
+		public function Imagen9(event:MouseEvent):void{
+				gotoAndStop(8);
+				quitar_btn.addEventListener(MouseEvent.CLICK, RChild);
+				var cargador:URLLoader=new URLLoader(new URLRequest("Galeria.xml"));
+				addChild(Galeria)
+			function cargarLista(event:Event){
+				datosXML=new XML (event.target.data);
+				numeroElementos=datosXML.mochilas.length();
+				setImagenes();
+				}
+			cargador.addEventListener(Event.COMPLETE,cargarLista);
+				
+			function setImagenes (){
+				imagen.load(new URLRequest(datosXML.mochilas[8].imagen));
+				imagen.y=200;
+				imagen.x=500;
+				Galeria.addChild(imagen);
+			}
+		}
+//=============================================================================================
+		public function Imagen10(event:MouseEvent):void{
+				gotoAndStop(8);
+				quitar_btn.addEventListener(MouseEvent.CLICK, RChild);
+				var cargador:URLLoader=new URLLoader(new URLRequest("Galeria.xml"));
+				addChild(Galeria)
+			function cargarLista(event:Event){
+				datosXML=new XML (event.target.data);
+				numeroElementos=datosXML.mochilas.length();
+				setImagenes();
+				}
+			cargador.addEventListener(Event.COMPLETE,cargarLista);
+				
+			function setImagenes (){
+				imagen.load(new URLRequest(datosXML.mochilas[9].imagen));
+				imagen.y=200;
+				imagen.x=500;
+				Galeria.addChild(imagen);
+			}
+		}
+//=============================================================================================
+		public function Imagen11(event:MouseEvent):void{
+				gotoAndStop(8);
+				quitar_btn.addEventListener(MouseEvent.CLICK, RChild);
+				var cargador:URLLoader=new URLLoader(new URLRequest("Galeria.xml"));
+				addChild(Galeria)
+			function cargarLista(event:Event){
+				datosXML=new XML (event.target.data);
+				numeroElementos=datosXML.mochilas.length();
+				setImagenes();
+				}
+			cargador.addEventListener(Event.COMPLETE,cargarLista);
+				
+			function setImagenes (){
+				imagen.load(new URLRequest(datosXML.mochilas[10].imagen));
+				imagen.y=200;
+				imagen.x=500;
+				Galeria.addChild(imagen);
+			}
+		}
+//=============================================================================================
+		public function Imagen12(event:MouseEvent):void{
+				gotoAndStop(8);
+				quitar_btn.addEventListener(MouseEvent.CLICK, RChild);
+				var cargador:URLLoader=new URLLoader(new URLRequest("Galeria.xml"));
+				addChild(Galeria)
+			function cargarLista(event:Event){
+				datosXML=new XML (event.target.data);
+				numeroElementos=datosXML.mochilas.length();
+				setImagenes();
+				}
+			cargador.addEventListener(Event.COMPLETE,cargarLista);
+				
+			function setImagenes (){
+				imagen.load(new URLRequest(datosXML.mochilas[11].imagen));
+				imagen.y=200;
+				imagen.x=500;
+				Galeria.addChild(imagen);
+			}
+		}
+//=============================================================================================
+		public function Imagen13(event:MouseEvent):void{
+				gotoAndStop(8);
+				quitar_btn.addEventListener(MouseEvent.CLICK, RChild);
+				var cargador:URLLoader=new URLLoader(new URLRequest("Galeria.xml"));
+				addChild(Galeria)
+			function cargarLista(event:Event){
+				datosXML=new XML (event.target.data);
+				numeroElementos=datosXML.mochilas.length();
+				setImagenes();
+				}
+			cargador.addEventListener(Event.COMPLETE,cargarLista);
+				
+			function setImagenes (){
+				imagen.load(new URLRequest(datosXML.mochilas[12].imagen));
+				imagen.y=200;
+				imagen.x=500;
+				Galeria.addChild(imagen);
+			}
+		}
+//=============================================================================================
+		public function Imagen14(event:MouseEvent):void{
+				gotoAndStop(8);
+				quitar_btn.addEventListener(MouseEvent.CLICK, RChild);
+				var cargador:URLLoader=new URLLoader(new URLRequest("Galeria.xml"));
+				addChild(Galeria)
+			function cargarLista(event:Event){
+				datosXML=new XML (event.target.data);
+				numeroElementos=datosXML.mochilas.length();
+				setImagenes();
+				}
+			cargador.addEventListener(Event.COMPLETE,cargarLista);
+				
+			function setImagenes (){
+				imagen.load(new URLRequest(datosXML.mochilas[13].imagen));
+				imagen.y=200;
+				imagen.x=500;
+				Galeria.addChild(imagen);
+			}
+		}
+//=============================================================================================
+		public function Imagen15(event:MouseEvent):void{
+				gotoAndStop(8);
+				quitar_btn.addEventListener(MouseEvent.CLICK, RChild);
+				var cargador:URLLoader=new URLLoader(new URLRequest("Galeria.xml"));
+				addChild(Galeria)
+			function cargarLista(event:Event){
+				datosXML=new XML (event.target.data);
+				numeroElementos=datosXML.mochilas.length();
+				setImagenes();
+				}
+			cargador.addEventListener(Event.COMPLETE,cargarLista);
+				
+			function setImagenes (){
+				imagen.load(new URLRequest(datosXML.mochilas[14].imagen));
+				imagen.y=200;
+				imagen.x=500;
+				Galeria.addChild(imagen);
+			}
+		}
+//=============================================================================================
+		public function Imagen16(event:MouseEvent):void{
+				gotoAndStop(8);
+				quitar_btn.addEventListener(MouseEvent.CLICK, RChild);
+				var cargador:URLLoader=new URLLoader(new URLRequest("Galeria.xml"));
+				addChild(Galeria)
+			function cargarLista(event:Event){
+				datosXML=new XML (event.target.data);
+				numeroElementos=datosXML.mochilas.length();
+				setImagenes();
+				}
+			cargador.addEventListener(Event.COMPLETE,cargarLista);
+				
+			function setImagenes (){
+				imagen.load(new URLRequest(datosXML.mochilas[15].imagen));
+				imagen.y=200;
+				imagen.x=500;
+				Galeria.addChild(imagen);
+			}
+		}
+//=============================================================================================
+		public function Imagen17(event:MouseEvent):void{
+				gotoAndStop(8);
+				quitar_btn.addEventListener(MouseEvent.CLICK, RChild);
+				var cargador:URLLoader=new URLLoader(new URLRequest("Galeria.xml"));
+				addChild(Galeria)
+			function cargarLista(event:Event){
+				datosXML=new XML (event.target.data);
+				numeroElementos=datosXML.mochilas.length();
+				setImagenes();
+				}
+			cargador.addEventListener(Event.COMPLETE,cargarLista);
+				
+			function setImagenes (){
+				imagen.load(new URLRequest(datosXML.mochilas[16].imagen));
+				imagen.y=200;
+				imagen.x=500;
+				Galeria.addChild(imagen);
+			}
+		}
+//=============================================================================================
+		public function Imagen18(event:MouseEvent):void{
+				gotoAndStop(8);
+				quitar_btn.addEventListener(MouseEvent.CLICK, RChild);
+				var cargador:URLLoader=new URLLoader(new URLRequest("Galeria.xml"));
+				addChild(Galeria)
+			function cargarLista(event:Event){
+				datosXML=new XML (event.target.data);
+				numeroElementos=datosXML.mochilas.length();
+				setImagenes();
+				}
+			cargador.addEventListener(Event.COMPLETE,cargarLista);
+				
+			function setImagenes (){
+				imagen.load(new URLRequest(datosXML.mochilas[17].imagen));
+				imagen.y=200;
+				imagen.x=500;
+				Galeria.addChild(imagen);
+			}
+		}
+//=============================================================================================
+		public function Imagen19(event:MouseEvent):void{
+				gotoAndStop(8);
+				quitar_btn.addEventListener(MouseEvent.CLICK, RChild);
+				var cargador:URLLoader=new URLLoader(new URLRequest("Galeria.xml"));
+				addChild(Galeria)
+			function cargarLista(event:Event){
+				datosXML=new XML (event.target.data);
+				numeroElementos=datosXML.mochilas.length();
+				setImagenes();
+				}
+			cargador.addEventListener(Event.COMPLETE,cargarLista);
+				
+			function setImagenes (){
+				imagen.load(new URLRequest(datosXML.mochilas[18].imagen));
+				imagen.y=200;
+				imagen.x=500;
+				Galeria.addChild(imagen);
+			}
+		}
+//=============================================================================================
+		public function Imagen20(event:MouseEvent):void{
+				gotoAndStop(8);
+				quitar_btn.addEventListener(MouseEvent.CLICK, RChild);
+				var cargador:URLLoader=new URLLoader(new URLRequest("Galeria.xml"));
+				addChild(Galeria)
+			function cargarLista(event:Event){
+				datosXML=new XML (event.target.data);
+				numeroElementos=datosXML.mochilas.length();
+				setImagenes();
+				}
+			cargador.addEventListener(Event.COMPLETE,cargarLista);
+				
+			function setImagenes (){
+				imagen.load(new URLRequest(datosXML.mochilas[19].imagen));
+				imagen.y=200;
+				imagen.x=500;
+				Galeria.addChild(imagen);
+			}
+		}
+		
 	}
+
 }

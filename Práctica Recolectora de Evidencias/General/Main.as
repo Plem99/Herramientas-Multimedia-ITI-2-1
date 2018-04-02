@@ -15,7 +15,7 @@
 	
 	public class Main extends MovieClip {
 		var Galeria:Sprite=new Sprite();
-		var carga:Loader=new Loader();
+		//var carga:Loader=new Loader();
 		
 		var datosXML:XML;
 		var numeroElementos:uint;
@@ -35,7 +35,7 @@
 				practicas_btn.addEventListener(MouseEvent.CLICK, Practicas);
 				multimedia_btn.addEventListener(MouseEvent.CLICK, Multimedia);
 				videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
-				info_btn.addEventListener(MouseEvent.CLICK, Informacion);
+				info_btn.addEventListener(MouseEvent.CLICK, Videos);
 				inicio_btn.addEventListener(MouseEvent.CLICK, Inicio);
 			}
 		}
@@ -46,7 +46,7 @@
 			gotoAndStop(3);
 			multimedia_btn.addEventListener(MouseEvent.CLICK, Multimedia);
 			videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
-			info_btn.addEventListener(MouseEvent.CLICK, Informacion);
+			info_btn.addEventListener(MouseEvent.CLICK, Videos);
 			poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
 			
 			p1_btn.addEventListener(MouseEvent.CLICK, Practica1);
@@ -72,6 +72,12 @@
 			t4_btn.addEventListener(MouseEvent.CLICK, Tarea4);
 			t5_btn.addEventListener(MouseEvent.CLICK, Tarea5);
 			ant_btn.addEventListener(MouseEvent.CLICK, Practicas);
+			
+			videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
+			info_btn.addEventListener(MouseEvent.CLICK, Videos);
+			poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
+			multimedia_btn.addEventListener(MouseEvent.CLICK, Multimedia);
+			inicio_btn.addEventListener(MouseEvent.CLICK, Inicio);
 		}
 //==============================================================================================================================			
 //Multimedia.
@@ -80,8 +86,10 @@
 			gotoAndStop(4);
 			practicas_btn.addEventListener(MouseEvent.CLICK, Practicas);
 			videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
-			info_btn.addEventListener(MouseEvent.CLICK, Informacion);
+			info_btn.addEventListener(MouseEvent.CLICK, Videos);
 			poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
+			videos_btn.addEventListener(MouseEvent.CLICK, Videos);
+			inicio_btn.addEventListener(MouseEvent.CLICK, Inicio);
 
 			m1.addEventListener(MouseEvent.CLICK, Imagen1);
 			m2.addEventListener(MouseEvent.CLICK, Imagen2);
@@ -106,11 +114,11 @@
 	
 		}
 		public function RChild (event:MouseEvent):void{
-			gotoAndStop(4);
 			removeChild(Galeria);
+			gotoAndStop(4);
 			practicas_btn.addEventListener(MouseEvent.CLICK, Practicas);
 			videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
-			info_btn.addEventListener(MouseEvent.CLICK, Informacion);
+			info_btn.addEventListener(MouseEvent.CLICK, Videos);
 			poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
 			inicio_btn.addEventListener(MouseEvent.CLICK, Inicio);
 
@@ -134,7 +142,6 @@
 			m18.addEventListener(MouseEvent.CLICK, Imagen18);
 			m19.addEventListener(MouseEvent.CLICK, Imagen19);
 			m20.addEventListener(MouseEvent.CLICK, Imagen20);
-			
 		}
 //==============================================================================================================================			
 //VideoJuegos.
@@ -143,7 +150,7 @@
 			gotoAndStop(5);
 			practicas_btn.addEventListener(MouseEvent.CLICK, Practicas);
 			multimedia_btn.addEventListener(MouseEvent.CLICK, Multimedia);
-			info_btn.addEventListener(MouseEvent.CLICK, Informacion);
+			info_btn.addEventListener(MouseEvent.CLICK, Videos);
 			poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
 			col_btn.addEventListener(MouseEvent.CLICK,Practica4 );
 			mem_btn.addEventListener(MouseEvent.CLICK,Memorama );
@@ -152,12 +159,23 @@
 //==============================================================================================================================			
 //Información.
 //==============================================================================================================================
-		public function Informacion (event:MouseEvent):void{
+		public function Videos (event:MouseEvent):void{
 			gotoAndStop(6);
 			practicas_btn.addEventListener(MouseEvent.CLICK, Practicas);
 			multimedia_btn.addEventListener(MouseEvent.CLICK, Multimedia);
 			videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
 			poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
+			
+			video1.addEventListener(MouseEvent.CLICK, Video1);
+			video2.addEventListener(MouseEvent.CLICK, Video2);
+			video3.addEventListener(MouseEvent.CLICK, Video3);
+			video4.addEventListener(MouseEvent.CLICK, Video4);
+			video5.addEventListener(MouseEvent.CLICK, Video5);
+			video6.addEventListener(MouseEvent.CLICK, Video6);
+			video7.addEventListener(MouseEvent.CLICK, Video7);
+			video8.addEventListener(MouseEvent.CLICK, Video8);
+			video9.addEventListener(MouseEvent.CLICK, Video9);
+			video10.addEventListener(MouseEvent.CLICK, Video10);
 		}
 //==============================================================================================================================			
 //Inicio.
@@ -167,7 +185,7 @@
 			practicas_btn.addEventListener(MouseEvent.CLICK, Practicas);
 			multimedia_btn.addEventListener(MouseEvent.CLICK, Multimedia);
 			videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
-			info_btn.addEventListener(MouseEvent.CLICK, Informacion);
+			info_btn.addEventListener(MouseEvent.CLICK, Videos);
 			poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
 			
 			//removeChild(Galeria);
@@ -724,7 +742,76 @@
 				Galeria.addChild(imagen);
 			}
 		}
-		
+//==============================================================================================================================			
+//Video 1.
+//==============================================================================================================================
+		public function Video1(event:MouseEvent):void{
+			var Videos:URLRequest = new URLRequest("Práctica 10/1-Diseño.mp4");
+			navigateToURL(Videos,"self");
+		}
+//==============================================================================================================================			
+//Video 2.
+//==============================================================================================================================
+		public function Video2(event:MouseEvent):void{
+			var Videos:URLRequest = new URLRequest("Práctica 10/2-Dado.mp4");
+			navigateToURL(Videos,"self");
+		}
+//==============================================================================================================================			
+//Video 3.
+//==============================================================================================================================
+		public function Video3(event:MouseEvent):void{
+			var Videos:URLRequest = new URLRequest("Práctica 10/3-Selector de Jugadores.mp4");
+			navigateToURL(Videos,"self");
+		}
+//==============================================================================================================================			
+//Video 4.
+//==============================================================================================================================
+		public function Video4(event:MouseEvent):void{
+			var Videos:URLRequest = new URLRequest("Práctica 10/4-Reglas.mp4");
+			navigateToURL(Videos,"self");
+		}
+//==============================================================================================================================			
+//Video 5.
+//==============================================================================================================================
+		public function Video5(event:MouseEvent):void{
+			var Videos:URLRequest = new URLRequest("Práctica 10/5-Tiempo.mp4");
+			navigateToURL(Videos,"self");
+		}
+//==============================================================================================================================			
+//Video 6.
+//==============================================================================================================================
+		public function Video6(event:MouseEvent):void{
+			var Videos:URLRequest = new URLRequest("Práctica 10/video6.mp4");
+			navigateToURL(Videos,"self");
+		}
+//==============================================================================================================================			
+//Video 7.
+//==============================================================================================================================
+		public function Video7(event:MouseEvent):void{
+			var Videos:URLRequest = new URLRequest("Práctica 10/video7.mp4");
+			navigateToURL(Videos,"self");
+		}
+//==============================================================================================================================			
+//Video 8.
+//==============================================================================================================================
+		public function Video8(event:MouseEvent):void{
+			var Videos:URLRequest = new URLRequest("Práctica 10/Video8.mp4");
+			navigateToURL(Videos,"self");
+		}
+//==============================================================================================================================			
+//Video 9.
+//==============================================================================================================================
+		public function Video9(event:MouseEvent):void{
+			var Videos:URLRequest = new URLRequest("Práctica 10/Video9.mp4");
+			navigateToURL(Videos,"self");
+		}
+//==============================================================================================================================			
+//Video 10.
+//==============================================================================================================================
+		public function Video10(event:MouseEvent):void{
+			var Videos:URLRequest = new URLRequest("Práctica 10/Video10.mp4");
+			navigateToURL(Videos,"self");
+		}
 	}
 
 }

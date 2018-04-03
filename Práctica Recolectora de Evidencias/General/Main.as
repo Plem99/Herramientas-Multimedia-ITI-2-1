@@ -12,6 +12,8 @@
 	import fl.transitions.Tween;
 	import fl.transitions.*;
 	import fl.transitions.easing.*;
+	import flash.utils.Timer;
+    import flash.events.TimerEvent;
 	
 	public class Main extends MovieClip {
 		var Galeria:Sprite=new Sprite();
@@ -20,6 +22,28 @@
 		var datosXML:XML;
 		var numeroElementos:uint;
 		var imagen:Loader=new Loader();
+		
+		var timer1: Timer = new Timer(995, cont++);
+		var cont: int = 0;
+		var timer2: Timer = new Timer(995, cont2++);
+		var cont2: int = 0;
+		var timer3: Timer = new Timer(995, cont3++);
+		var cont3: int = 0;
+		var timer4: Timer = new Timer(995, cont4++);
+		var cont4: int = 0;
+		var tmp: int=0;
+		
+		var tiempo1:Boolean=true;
+		var tiempo1_1:Boolean=false;
+		var tiempo2:Boolean=true;
+		var tiempo2_2:Boolean=false;
+		var tiempo3:Boolean=true;
+		var tiempo4:Boolean=true;
+		
+		var boleano1:Boolean=false;
+		var boleano2:Boolean=false;
+		var boleano3:Boolean=false;
+		var boleano4:Boolean=false;
 		
 		public function Main() {
 			enter_btn.addEventListener(MouseEvent.CLICK, Enter);
@@ -37,33 +61,101 @@
 				videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
 				info_btn.addEventListener(MouseEvent.CLICK, Videos);
 				inicio_btn.addEventListener(MouseEvent.CLICK, Inicio);
+				i1.visible=false;
+
 			}
 		}
 //==============================================================================================================================			
 //Prácticas.
 //==============================================================================================================================
 		public function Practicas (event:MouseEvent):void{
-			gotoAndStop(3);
-			multimedia_btn.addEventListener(MouseEvent.CLICK, Multimedia);
-			videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
-			info_btn.addEventListener(MouseEvent.CLICK, Videos);
-			poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
+			timer1.addEventListener(TimerEvent.TIMER, Tiempo1);
 			
-			p1_btn.addEventListener(MouseEvent.CLICK, Practica1);
-			p2_btn.addEventListener(MouseEvent.CLICK, Practica2);
-			p3_btn.addEventListener(MouseEvent.CLICK, Practica3);
-			p4_btn.addEventListener(MouseEvent.CLICK, Practica4);
-			p5_btn.addEventListener(MouseEvent.CLICK, Practica5);
-			p5_5btn.addEventListener(MouseEvent.CLICK, Practica5_5);
-			p6_btn.addEventListener(MouseEvent.CLICK, Practica6);
-			p7_btn.addEventListener(MouseEvent.CLICK, Practica7);
-			p8_btn.addEventListener(MouseEvent.CLICK, Practica8);
-			p9_btn.addEventListener(MouseEvent.CLICK, Practica9);
-			p10_btn.addEventListener(MouseEvent.CLICK, Practica10);
-			sig_btn.addEventListener(MouseEvent.CLICK, Siguiente);
+			if (tiempo1==true){
+				tiempo1=false;
+				timer1.start();
+				i1.visible=true;
+				i1.gotoAndPlay(2);
+			}
+			if (tiempo1_1==true){
+				tiempo1_1=false;
+				gotoAndStop(3);
+				multimedia_btn.addEventListener(MouseEvent.CLICK, Multimedia);
+				videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
+				info_btn.addEventListener(MouseEvent.CLICK, Videos);
+				poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
+				inicio_btn.addEventListener(MouseEvent.CLICK, Inicio);
+				p1_btn.addEventListener(MouseEvent.CLICK, Practica1);
+				p2_btn.addEventListener(MouseEvent.CLICK, Practica2);
+				p3_btn.addEventListener(MouseEvent.CLICK, Practica3);
+				p4_btn.addEventListener(MouseEvent.CLICK, Practica4);
+				p5_btn.addEventListener(MouseEvent.CLICK, Practica5);
+				p5_5btn.addEventListener(MouseEvent.CLICK, Practica5_5);
+				p6_btn.addEventListener(MouseEvent.CLICK, Practica6);
+				p7_btn.addEventListener(MouseEvent.CLICK, Practica7);
+				p8_btn.addEventListener(MouseEvent.CLICK, Practica8);
+				p9_btn.addEventListener(MouseEvent.CLICK, Practica9);
+				p10_btn.addEventListener(MouseEvent.CLICK, Practica10);
+				sig_btn.addEventListener(MouseEvent.CLICK, Siguiente);
+			}
+			if (boleano1==true){
+				gotoAndStop(3);
+				multimedia_btn.addEventListener(MouseEvent.CLICK, Multimedia);
+				videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
+				info_btn.addEventListener(MouseEvent.CLICK, Videos);
+				poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
+				inicio_btn.addEventListener(MouseEvent.CLICK, Inicio);
+				p1_btn.addEventListener(MouseEvent.CLICK, Practica1);
+				p2_btn.addEventListener(MouseEvent.CLICK, Practica2);
+				p3_btn.addEventListener(MouseEvent.CLICK, Practica3);
+				p4_btn.addEventListener(MouseEvent.CLICK, Practica4);
+				p5_btn.addEventListener(MouseEvent.CLICK, Practica5);
+				p5_5btn.addEventListener(MouseEvent.CLICK, Practica5_5);
+				p6_btn.addEventListener(MouseEvent.CLICK, Practica6);
+				p7_btn.addEventListener(MouseEvent.CLICK, Practica7);
+				p8_btn.addEventListener(MouseEvent.CLICK, Practica8);
+				p9_btn.addEventListener(MouseEvent.CLICK, Practica9);
+				p10_btn.addEventListener(MouseEvent.CLICK, Practica10);
+				sig_btn.addEventListener(MouseEvent.CLICK, Siguiente);
+			}
+			
+		}
+		public function Tiempo1(event: TimerEvent): void {
+			tmp++
+			if (tmp == 1) {
+				tmp=0;
+				gotoAndStop(3);
+				timer1.stop();
+				boleano2=true;
+				boleano3=true;
+				boleano4=true;
+				tiempo2=false;
+				tiempo3=false;
+				tiempo4=false;
+				multimedia_btn.addEventListener(MouseEvent.CLICK, Multimedia);
+				videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
+				info_btn.addEventListener(MouseEvent.CLICK, Videos);
+				poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
+				inicio_btn.addEventListener(MouseEvent.CLICK, Inicio);
+				p1_btn.addEventListener(MouseEvent.CLICK, Practica1);
+				p2_btn.addEventListener(MouseEvent.CLICK, Practica2);
+				p3_btn.addEventListener(MouseEvent.CLICK, Practica3);
+				p4_btn.addEventListener(MouseEvent.CLICK, Practica4);
+				p5_btn.addEventListener(MouseEvent.CLICK, Practica5);
+				p5_5btn.addEventListener(MouseEvent.CLICK, Practica5_5);
+				p6_btn.addEventListener(MouseEvent.CLICK, Practica6);
+				p7_btn.addEventListener(MouseEvent.CLICK, Practica7);
+				p8_btn.addEventListener(MouseEvent.CLICK, Practica8);
+				p9_btn.addEventListener(MouseEvent.CLICK, Practica9);
+				p10_btn.addEventListener(MouseEvent.CLICK, Practica10);
+				sig_btn.addEventListener(MouseEvent.CLICK, Siguiente);
 
+			}
+			
 		}
 		public function Siguiente (event:MouseEvent):void{
+			tiempo1=false;
+			tiempo1_1=true;
 			gotoAndStop(7);
 			p11_btn.addEventListener(MouseEvent.CLICK, Practica11);
 			t1_btn.addEventListener(MouseEvent.CLICK, Tarea1);
@@ -72,46 +164,99 @@
 			t4_btn.addEventListener(MouseEvent.CLICK, Tarea4);
 			t5_btn.addEventListener(MouseEvent.CLICK, Tarea5);
 			ant_btn.addEventListener(MouseEvent.CLICK, Practicas);
-			
 			videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
 			info_btn.addEventListener(MouseEvent.CLICK, Videos);
 			poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
 			multimedia_btn.addEventListener(MouseEvent.CLICK, Multimedia);
 			inicio_btn.addEventListener(MouseEvent.CLICK, Inicio);
+			
 		}
 //==============================================================================================================================			
 //Multimedia.
 //==============================================================================================================================
 		public function Multimedia (event:MouseEvent):void{
-			gotoAndStop(4);
-			practicas_btn.addEventListener(MouseEvent.CLICK, Practicas);
-			videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
-			info_btn.addEventListener(MouseEvent.CLICK, Videos);
-			poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
-			videos_btn.addEventListener(MouseEvent.CLICK, Videos);
-			inicio_btn.addEventListener(MouseEvent.CLICK, Inicio);
+			timer2.addEventListener(TimerEvent.TIMER, Tiempo2);
+			if (tiempo2==true){
+				tiempo2=false;
+				timer2.start();
+				i1.visible=true;
+				i1.gotoAndPlay(2);
+			}
+			if (boleano2==true){
+				gotoAndStop(4);
+				practicas_btn.addEventListener(MouseEvent.CLICK, Practicas);
+				videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
+				info_btn.addEventListener(MouseEvent.CLICK, Videos);
+				poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
+				videos_btn.addEventListener(MouseEvent.CLICK, Videos);
+				inicio_btn.addEventListener(MouseEvent.CLICK, Inicio);
 
-			m1.addEventListener(MouseEvent.CLICK, Imagen1);
-			m2.addEventListener(MouseEvent.CLICK, Imagen2);
-			m3.addEventListener(MouseEvent.CLICK, Imagen3);
-			m4.addEventListener(MouseEvent.CLICK, Imagen4);
-			m5.addEventListener(MouseEvent.CLICK, Imagen5);
-			m6.addEventListener(MouseEvent.CLICK, Imagen6);
-			m7.addEventListener(MouseEvent.CLICK, Imagen7);
-			m8.addEventListener(MouseEvent.CLICK, Imagen8);
-			m9.addEventListener(MouseEvent.CLICK, Imagen9);
-			m10.addEventListener(MouseEvent.CLICK, Imagen10);
-			m11.addEventListener(MouseEvent.CLICK, Imagen11);
-			m12.addEventListener(MouseEvent.CLICK, Imagen12);
-			m13.addEventListener(MouseEvent.CLICK, Imagen13);
-			m14.addEventListener(MouseEvent.CLICK, Imagen14);
-			m15.addEventListener(MouseEvent.CLICK, Imagen15);
-			m16.addEventListener(MouseEvent.CLICK, Imagen16);
-			m17.addEventListener(MouseEvent.CLICK, Imagen17);
-			m18.addEventListener(MouseEvent.CLICK, Imagen18);
-			m19.addEventListener(MouseEvent.CLICK, Imagen19);
-			m20.addEventListener(MouseEvent.CLICK, Imagen20);
+				m1.addEventListener(MouseEvent.CLICK, Imagen1);
+				m2.addEventListener(MouseEvent.CLICK, Imagen2);
+				m3.addEventListener(MouseEvent.CLICK, Imagen3);
+				m4.addEventListener(MouseEvent.CLICK, Imagen4);
+				m5.addEventListener(MouseEvent.CLICK, Imagen5);
+				m6.addEventListener(MouseEvent.CLICK, Imagen6);
+				m7.addEventListener(MouseEvent.CLICK, Imagen7);
+				m8.addEventListener(MouseEvent.CLICK, Imagen8);
+				m9.addEventListener(MouseEvent.CLICK, Imagen9);
+				m10.addEventListener(MouseEvent.CLICK, Imagen10);
+				m11.addEventListener(MouseEvent.CLICK, Imagen11);
+				m12.addEventListener(MouseEvent.CLICK, Imagen12);
+				m13.addEventListener(MouseEvent.CLICK, Imagen13);
+				m14.addEventListener(MouseEvent.CLICK, Imagen14);
+				m15.addEventListener(MouseEvent.CLICK, Imagen15);
+				m16.addEventListener(MouseEvent.CLICK, Imagen16);
+				m17.addEventListener(MouseEvent.CLICK, Imagen17);
+				m18.addEventListener(MouseEvent.CLICK, Imagen18);
+				m19.addEventListener(MouseEvent.CLICK, Imagen19);
+				m20.addEventListener(MouseEvent.CLICK, Imagen20);
+			}
 	
+		}
+		public function Tiempo2(event: TimerEvent): void {
+			tmp++
+			if (tmp == 1) {
+				tmp=0;
+				gotoAndStop(4);
+				tiempo2_2=true;
+				tiempo4=false;
+				timer2.stop();
+				boleano1=true;
+				boleano3=true;
+				boleano4=true;
+				tiempo1=false;
+				tiempo3=false;
+				tiempo4=false;
+				practicas_btn.addEventListener(MouseEvent.CLICK, Practicas);
+				videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
+				info_btn.addEventListener(MouseEvent.CLICK, Videos);
+				poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
+				videos_btn.addEventListener(MouseEvent.CLICK, Videos);
+				inicio_btn.addEventListener(MouseEvent.CLICK, Inicio);
+
+				m1.addEventListener(MouseEvent.CLICK, Imagen1);
+				m2.addEventListener(MouseEvent.CLICK, Imagen2);
+				m3.addEventListener(MouseEvent.CLICK, Imagen3);
+				m4.addEventListener(MouseEvent.CLICK, Imagen4);
+				m5.addEventListener(MouseEvent.CLICK, Imagen5);
+				m6.addEventListener(MouseEvent.CLICK, Imagen6);
+				m7.addEventListener(MouseEvent.CLICK, Imagen7);
+				m8.addEventListener(MouseEvent.CLICK, Imagen8);
+				m9.addEventListener(MouseEvent.CLICK, Imagen9);
+				m10.addEventListener(MouseEvent.CLICK, Imagen10);
+				m11.addEventListener(MouseEvent.CLICK, Imagen11);
+				m12.addEventListener(MouseEvent.CLICK, Imagen12);
+				m13.addEventListener(MouseEvent.CLICK, Imagen13);
+				m14.addEventListener(MouseEvent.CLICK, Imagen14);
+				m15.addEventListener(MouseEvent.CLICK, Imagen15);
+				m16.addEventListener(MouseEvent.CLICK, Imagen16);
+				m17.addEventListener(MouseEvent.CLICK, Imagen17);
+				m18.addEventListener(MouseEvent.CLICK, Imagen18);
+				m19.addEventListener(MouseEvent.CLICK, Imagen19);
+				m20.addEventListener(MouseEvent.CLICK, Imagen20);
+			}
+			
 		}
 		public function RChild (event:MouseEvent):void{
 			removeChild(Galeria);
@@ -121,7 +266,7 @@
 			info_btn.addEventListener(MouseEvent.CLICK, Videos);
 			poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
 			inicio_btn.addEventListener(MouseEvent.CLICK, Inicio);
-
+			videos_btn.addEventListener(MouseEvent.CLICK, Videos);
 			m1.addEventListener(MouseEvent.CLICK, Imagen1);
 			m2.addEventListener(MouseEvent.CLICK, Imagen2);
 			m3.addEventListener(MouseEvent.CLICK, Imagen3);
@@ -147,35 +292,123 @@
 //VideoJuegos.
 //==============================================================================================================================
 		public function VideoJuegos (event:MouseEvent):void{
-			gotoAndStop(5);
-			practicas_btn.addEventListener(MouseEvent.CLICK, Practicas);
-			multimedia_btn.addEventListener(MouseEvent.CLICK, Multimedia);
-			info_btn.addEventListener(MouseEvent.CLICK, Videos);
-			poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
-			col_btn.addEventListener(MouseEvent.CLICK,Practica4 );
-			mem_btn.addEventListener(MouseEvent.CLICK,Memorama );
-			ser_btn.addEventListener(MouseEvent.CLICK, SerYEsc );
+			timer3.addEventListener(TimerEvent.TIMER, Tiempo3);
+			if (tiempo3==true){
+				tiempo3=false;
+				timer3.start();
+				i1.visible=true;
+				i1.gotoAndPlay(2);
+			}
+			if (boleano3==true){
+				gotoAndStop(5);
+				practicas_btn.addEventListener(MouseEvent.CLICK, Practicas);
+				multimedia_btn.addEventListener(MouseEvent.CLICK, Multimedia);
+				info_btn.addEventListener(MouseEvent.CLICK, Videos);
+				poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
+				col_btn.addEventListener(MouseEvent.CLICK,Practica4 );
+				mem_btn.addEventListener(MouseEvent.CLICK,Memorama );
+				ser_btn.addEventListener(MouseEvent.CLICK, SerYEsc );
+			}
+		}
+		public function Tiempo3(event: TimerEvent): void {
+			tmp++
+			if (tmp == 1) {
+				tmp=0;
+				gotoAndStop(5);
+				timer3.stop();
+				boleano1=true;
+				boleano2=true;
+				boleano4=true;
+				tiempo1=false;
+				tiempo2=false;
+				tiempo4=false;
+				practicas_btn.addEventListener(MouseEvent.CLICK, Practicas);
+				multimedia_btn.addEventListener(MouseEvent.CLICK, Multimedia);
+				info_btn.addEventListener(MouseEvent.CLICK, Videos);
+				poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
+				col_btn.addEventListener(MouseEvent.CLICK,Practica4 );
+				mem_btn.addEventListener(MouseEvent.CLICK,Memorama );
+				ser_btn.addEventListener(MouseEvent.CLICK, SerYEsc );
+			}
 		}
 //==============================================================================================================================			
 //Información.
 //==============================================================================================================================
 		public function Videos (event:MouseEvent):void{
-			gotoAndStop(6);
-			practicas_btn.addEventListener(MouseEvent.CLICK, Practicas);
-			multimedia_btn.addEventListener(MouseEvent.CLICK, Multimedia);
-			videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
-			poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
-			
-			video1.addEventListener(MouseEvent.CLICK, Video1);
-			video2.addEventListener(MouseEvent.CLICK, Video2);
-			video3.addEventListener(MouseEvent.CLICK, Video3);
-			video4.addEventListener(MouseEvent.CLICK, Video4);
-			video5.addEventListener(MouseEvent.CLICK, Video5);
-			video6.addEventListener(MouseEvent.CLICK, Video6);
-			video7.addEventListener(MouseEvent.CLICK, Video7);
-			video8.addEventListener(MouseEvent.CLICK, Video8);
-			video9.addEventListener(MouseEvent.CLICK, Video9);
-			video10.addEventListener(MouseEvent.CLICK, Video10);
+			tiempo2=false;
+			timer4.addEventListener(TimerEvent.TIMER, Tiempo4);
+			if (tiempo4==true){
+				tiempo4=false;
+				timer4.start();
+				i1.visible=true;
+				i1.gotoAndPlay(2);
+			}
+			if (tiempo2_2==true){
+				tiempo2_2=false;
+				gotoAndStop(6);
+				practicas_btn.addEventListener(MouseEvent.CLICK, Practicas);
+				multimedia_btn.addEventListener(MouseEvent.CLICK, Multimedia);
+				videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
+				poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
+				
+				video1.addEventListener(MouseEvent.CLICK, Video1);
+				video2.addEventListener(MouseEvent.CLICK, Video2);
+				video3.addEventListener(MouseEvent.CLICK, Video3);
+				video4.addEventListener(MouseEvent.CLICK, Video4);
+				video5.addEventListener(MouseEvent.CLICK, Video5);
+				video6.addEventListener(MouseEvent.CLICK, Video6);
+				video7.addEventListener(MouseEvent.CLICK, Video7);
+				video8.addEventListener(MouseEvent.CLICK, Video8);
+				video9.addEventListener(MouseEvent.CLICK, Video9);
+				video10.addEventListener(MouseEvent.CLICK, Video10);
+			}
+			if (boleano4==true){
+				gotoAndStop(6);
+				practicas_btn.addEventListener(MouseEvent.CLICK, Practicas);
+				multimedia_btn.addEventListener(MouseEvent.CLICK, Multimedia);
+				videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
+				poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
+				
+				video1.addEventListener(MouseEvent.CLICK, Video1);
+				video2.addEventListener(MouseEvent.CLICK, Video2);
+				video3.addEventListener(MouseEvent.CLICK, Video3);
+				video4.addEventListener(MouseEvent.CLICK, Video4);
+				video5.addEventListener(MouseEvent.CLICK, Video5);
+				video6.addEventListener(MouseEvent.CLICK, Video6);
+				video7.addEventListener(MouseEvent.CLICK, Video7);
+				video8.addEventListener(MouseEvent.CLICK, Video8);
+				video9.addEventListener(MouseEvent.CLICK, Video9);
+				video10.addEventListener(MouseEvent.CLICK, Video10);
+			}
+		}
+		public function Tiempo4(event: TimerEvent): void {
+			tmp++
+			if (tmp == 1) {
+				tmp=0;
+				gotoAndStop(6);
+				timer4.stop();
+				boleano1=true;
+				boleano3=true;
+				boleano2=true;
+				tiempo1=false;
+				tiempo3=false;
+				tiempo2=false;
+				practicas_btn.addEventListener(MouseEvent.CLICK, Practicas);
+				multimedia_btn.addEventListener(MouseEvent.CLICK, Multimedia);
+				videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
+				poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
+				
+				video1.addEventListener(MouseEvent.CLICK, Video1);
+				video2.addEventListener(MouseEvent.CLICK, Video2);
+				video3.addEventListener(MouseEvent.CLICK, Video3);
+				video4.addEventListener(MouseEvent.CLICK, Video4);
+				video5.addEventListener(MouseEvent.CLICK, Video5);
+				video6.addEventListener(MouseEvent.CLICK, Video6);
+				video7.addEventListener(MouseEvent.CLICK, Video7);
+				video8.addEventListener(MouseEvent.CLICK, Video8);
+				video9.addEventListener(MouseEvent.CLICK, Video9);
+				video10.addEventListener(MouseEvent.CLICK, Video10);
+			}
 		}
 //==============================================================================================================================			
 //Inicio.
@@ -187,7 +420,18 @@
 			videojuegos_btn.addEventListener(MouseEvent.CLICK, VideoJuegos);
 			info_btn.addEventListener(MouseEvent.CLICK, Videos);
 			poli_btn.addEventListener(MouseEvent.CLICK, Inicio);
+			i1.visible=false;
+			tiempo1=true;
+			tiempo1_1=false;
+			tiempo2=true;
+			tiempo2_2=false;
+			tiempo3=true;
+			tiempo4=true;
 			
+			boleano1=false;
+			boleano2=false;
+			boleano3=false;
+			boleano4=false;
 			//removeChild(Galeria);
 		}
 //==============================================================================================================================			

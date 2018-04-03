@@ -361,6 +361,8 @@
 				video8.addEventListener(MouseEvent.CLICK, Video8);
 				video9.addEventListener(MouseEvent.CLICK, Video9);
 				video10.addEventListener(MouseEvent.CLICK, Video10);
+				video11.addEventListener(MouseEvent.CLICK, Video11);
+				video12.addEventListener(MouseEvent.CLICK, Video12);
 			}
 			if (boleano4==true){
 				gotoAndStop(6);
@@ -379,6 +381,8 @@
 				video8.addEventListener(MouseEvent.CLICK, Video8);
 				video9.addEventListener(MouseEvent.CLICK, Video9);
 				video10.addEventListener(MouseEvent.CLICK, Video10);
+				video11.addEventListener(MouseEvent.CLICK, Video11);
+				video12.addEventListener(MouseEvent.CLICK, Video12);
 			}
 		}
 		public function Tiempo4(event: TimerEvent): void {
@@ -408,6 +412,8 @@
 				video8.addEventListener(MouseEvent.CLICK, Video8);
 				video9.addEventListener(MouseEvent.CLICK, Video9);
 				video10.addEventListener(MouseEvent.CLICK, Video10);
+				video11.addEventListener(MouseEvent.CLICK, Video11);
+				video12.addEventListener(MouseEvent.CLICK, Video12);
 			}
 		}
 //==============================================================================================================================			
@@ -1054,6 +1060,20 @@
 //==============================================================================================================================
 		public function Video10(event:MouseEvent):void{
 			var Videos:URLRequest = new URLRequest("Práctica 10/Video10.mp4");
+			navigateToURL(Videos,"self");
+		}
+//==============================================================================================================================			
+//Video 11.
+//==============================================================================================================================
+		public function Video11(event:MouseEvent):void{
+			var Videos:URLRequest = new URLRequest("Video Opinion.mp4");
+			navigateToURL(Videos,"self");
+		}
+//==============================================================================================================================			
+//Video 12.
+//==============================================================================================================================
+		public function Video12(event:MouseEvent):void{
+			var Videos:URLRequest = new URLRequest("Video Opinion IN.mp4");
 			navigateToURL(Videos,"self");
 		}
 	}

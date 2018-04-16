@@ -308,6 +308,8 @@
 				col_btn.addEventListener(MouseEvent.CLICK,Practica4 );
 				mem_btn.addEventListener(MouseEvent.CLICK,Memorama );
 				ser_btn.addEventListener(MouseEvent.CLICK, SerYEsc );
+				tet1_btn.addEventListener(MouseEvent.CLICK, Tetris1 );
+				tet2_btn.addEventListener(MouseEvent.CLICK, Tetris2 );
 			}
 		}
 		public function Tiempo3(event: TimerEvent): void {
@@ -329,6 +331,8 @@
 				col_btn.addEventListener(MouseEvent.CLICK,Practica4 );
 				mem_btn.addEventListener(MouseEvent.CLICK,Memorama );
 				ser_btn.addEventListener(MouseEvent.CLICK, SerYEsc );
+				tet1_btn.addEventListener(MouseEvent.CLICK, Tetris1 );
+				tet2_btn.addEventListener(MouseEvent.CLICK, Tetris2 );
 			}
 		}
 //==============================================================================================================================			
@@ -589,6 +593,22 @@
 //==============================================================================================================================
 		public function SerYEsc(event:MouseEvent):void{
 			var practica:URLRequest = new URLRequest("SeryEsc/Serpientes y Escaleras.html");
+			navigateToURL(practica,"self");
+			
+		}
+//==============================================================================================================================			
+//Tetris 1.
+//==============================================================================================================================
+		public function Tetris1(event:MouseEvent):void{
+			var practica:URLRequest = new URLRequest("Tetris/Práctica Tetris .html");
+			navigateToURL(practica,"self");
+			
+		}
+//==============================================================================================================================			
+//Tetris 2.
+//==============================================================================================================================
+		public function Tetris2(event:MouseEvent):void{
+			var practica:URLRequest = new URLRequest("Tetris/Práctica Tetris 2.html");
 			navigateToURL(practica,"self");
 			
 		}
